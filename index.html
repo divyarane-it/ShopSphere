@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="ShopSphere - Discover premium products at amazing prices.">
+
+    <title>ShopSphere | Discover Your Style</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        ✦ Discover Something New — Explore Our Latest Collection ✦
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span>ShopSphere</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#products">Shop</a>
+            <a href="#categories">Categories</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="header-btn" id="wishlistBtn" aria-label="Open wishlist">
+                ♡
+                <span class="count-badge" id="wishlistCount">0</span>
+            </button>
+
+            <button class="header-btn cart-button" id="cartBtn" aria-label="Open shopping cart">
+                🛒
+                <span class="count-badge" id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="hero-tag">THE FUTURE OF SHOPPING</p>
+
+            <h1>
+                Discover Your
+                <span>Next Favourite.</span>
+            </h1>
+
+            <p class="hero-description">
+                Explore a curated collection of products designed
+                to elevate your everyday lifestyle.
+            </p>
+
+            <a href="#products" class="hero-btn">
+                Explore Collection →
+            </a>
+
+        </div>
+
+        <div class="hero-decoration">
+            <div class="hero-circle circle-one"></div>
+            <div class="hero-circle circle-two"></div>
+            <div class="hero-symbol">S</div>
+        </div>
+
+    </section>
+
+    <!-- CATEGORY SECTION -->
+    <section class="category-section" id="categories">
+
+        <div class="section-heading">
+            <div>
+                <p class="section-tag">EXPLORE MORE</p>
+                <h2>Shop by Category</h2>
+            </div>
+        </div>
+
+        <div class="category-list" id="categoryList">
+
+            <button class="category-btn active" data-category="all">
+                All Products
+            </button>
+
+            <button class="category-btn" data-category="electronics">
+                Electronics
+            </button>
+
+            <button class="category-btn" data-category="fashion">
+                Fashion
+            </button>
+
+            <button class="category-btn" data-category="accessories">
+                Accessories
+            </button>
+
+            <button class="category-btn" data-category="home">
+                Home & Living
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCT SECTION -->
+    <main class="products-section" id="products">
+
+        <div class="products-header">
+
+            <div>
+                <p class="section-tag">OUR COLLECTION</p>
+                <h2>Featured Products</h2>
+                <p class="product-count" id="productCount">
+                    Explore our collection
+                </p>
+            </div>
+
+            <div class="sort-container">
+
+                <label for="sortSelect">Sort by:</label>
+
+                <select id="sortSelect">
+                    <option value="default">Featured</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- SEARCH AND PRICE FILTER -->
+        <div class="filter-toolbar">
+
+            <div class="search-container">
+                <span>⌕</span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    aria-label="Search products"
+                >
+            </div>
+
+            <div class="price-filter">
+
+                <label for="maxPrice">Maximum Price:</label>
+
+                <select id="maxPrice">
+                    <option value="all">Any Price</option>
+                    <option value="500">Under ₹500</option>
+                    <option value="1000">Under ₹1,000</option>
+                    <option value="2000">Under ₹2,000</option>
+                    <option value="5000">Under ₹5,000</option>
+                    <option value="10000">Under ₹10,000</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="product-grid" id="productGrid">
+
+            <!-- Products will be generated using JavaScript -->
+
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-state hidden" id="emptyState">
+
+            <div class="empty-icon">⌕</div>
+
+            <h3>No Products Found</h3>
+
+            <p>Try changing your search or filters.</p>
+
+            <button id="resetFilters">
+                Reset Filters
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- CART SIDEBAR -->
+    <div class="overlay hidden" id="overlay"></div>
+
+    <aside class="side-panel hidden" id="cartPanel">
+
+        <div class="panel-header">
+            <h2>Your Cart <span id="cartPanelCount">(0)</span></h2>
+
+            <button class="close-panel" id="closeCart" aria-label="Close cart">
+                ✕
+            </button>
+        </div>
+
+        <div class="panel-items" id="cartItems">
+            <p class="panel-empty">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+
+            <button class="checkout-btn" id="checkoutBtn">
+                Proceed to Checkout →
+            </button>
+
+            <p class="checkout-note">
+                Demo shopping experience. No real payment required.
+            </p>
+
+        </div>
+
+    </aside>
+
+    <!-- WISHLIST SIDEBAR -->
+    <aside class="side-panel hidden" id="wishlistPanel">
+
+        <div class="panel-header">
+            <h2>Your Wishlist ♡</h2>
+
+            <button class="close-panel" id="closeWishlist" aria-label="Close wishlist">
+                ✕
+            </button>
+        </div>
+
+        <div class="panel-items" id="wishlistItems">
+            <p class="panel-empty">Your wishlist is empty.</p>
+        </div>
+
+    </aside>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            ✦ ShopSphere
+        </div>
+
+        <p>
+            Discover more. Shop smarter. Live better.
+        </p>
+
+        <p class="copyright">
+            © 2026 ShopSphere. Developed by Divya Rane.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
